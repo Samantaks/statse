@@ -18,7 +18,7 @@ def logar(request):
         
         if user is not None:
             auth.login(request, user)
-            return redirect('empresarios/cadastrar_empresa')
+            return redirect('/empresarios/cadastrar_empresa')
         
         messages.add_message(request, constants.ERROR, "Usuário ou senha inválidos")
         return redirect('/usuarios/logar')
@@ -46,4 +46,4 @@ def cadastro(request):
         
         user = User.objects.create_user(username=username, password=senha)
         user.save()
-        return redirect('usuarios/logar')
+        return redirect('/usuarios/logar')
